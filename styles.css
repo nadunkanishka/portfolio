@@ -1,0 +1,1079 @@
+/* --- Complete CSS with Mobile Fixes --- */
+:root {
+    /* Primary Colors & Text */
+    --primary-color: #4a90e2;
+    /* Accent Blue */
+    --dark-text: #1c1c1e;
+    --medium-text: #636366;
+    --light-text: #777777;
+
+    /* Backgrounds & Separators */
+    --background-color: #ffffff;
+    /* Pure White for card components */
+    --base-background: #f7f9fd;
+    /* Lightest gray/blue for body/sections (matches dot background color) */
+    --line-color: #e0e0e0;
+    --line-color-dark: #c9d2db;
+    --highlight-color: #ffe6c7;
+
+    /* Spacing */
+    --spacing-unit: 80px;
+    --card-offset: 60px;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 1. Global Reset & Base Styles --- */
+/* ADDED: Scroll Padding to prevent fixed navbar from covering headings */
+html {
+    scroll-behavior: smooth;
+    /* Enables smooth scrolling for anchor links */
+    scroll-padding-top: 70px;
+    /* Offset the scroll position by 70px (slightly more than navbar height) */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Atkinson Hyperlegible Mono', monospace, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--dark-text);
+    background-color: var(--base-background);
+    line-height: 1.5;
+    min-height: 100vh;
+
+    /* --- GLOBAL DOT PATTERN --- */
+    background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Base Section Styling */
+.resume-section {
+    padding: var(--spacing-unit) 20px;
+    max-width: 900px;
+    margin: 0 auto;
+
+    /* MODIFICATION: Remove/set background to transparent so the body's dot pattern shows through. */
+    /* background-color: var(--base-background); */
+    background-color: transparent;
+    /* Ensures the dots show through the section padding area */
+}
+
+.section-header {
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eeeeee;
+    text-align: left;
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin: 0;
+    color: var(--dark-text);
+}
+
+
+/* --- 2. Navigation Bar (Pill Nav) --- */
+.minimal-nav {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background-color: #ffffff;
+    border-radius: 50px;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    /* ADDED: For hamburger menu structure */
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-link {
+    display: block;
+    padding: 12px 24px;
+    text-decoration: none;
+    color: #4b4b4b;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 40px;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.nav-link:hover:not(.active) {
+    background-color: #f2f2f2;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-weight: 600;
+    transform: none;
+    box-shadow: none;
+}
+
+/* NEW: Hamburger Icon Styles */
+.nav-toggle {
+    display: none;
+    /* Hidden by default on desktop */
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1001;
+}
+
+.nav-toggle-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--dark-text);
+    border-radius: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.2s, transform 0.3s;
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--dark-text);
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    transition: top 0.3s, transform 0.3s, background-color 0.2s;
+}
+
+.nav-toggle-icon::before {
+    top: -8px;
+}
+
+.nav-toggle-icon::after {
+    top: 8px;
+}
+
+/* JavaScript toggled classes for hamburger animation */
+.minimal-nav.open {
+    /* Ensure minimal-nav has enough space for the toggle on mobile when open */
+    height: auto;
+}
+
+.minimal-nav.open .nav-list {
+    display: flex;
+}
+
+.minimal-nav.open .nav-toggle-icon {
+    background: transparent;
+}
+
+.minimal-nav.open .nav-toggle-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.minimal-nav.open .nav-toggle-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+
+/* --- 3. Hero Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 20px 40px;
+    /* MODIFICATION: Change gradient to be transparent/matching background colors so the dot pattern shows through clearly */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.0) 0%, rgba(247, 249, 253, 0.0) 100%);
+    position: relative;
+}
+
+.role-badge {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    background-color: #e6f1ff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    letter-spacing: 0.05em;
+}
+
+.hero-title {
+    font-size: clamp(2.8rem, 6.5vw, 5rem);
+    font-weight: 900;
+    margin: 0 0 10px 0;
+    line-height: 1.15;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 400;
+    color: var(--light-text);
+    max-width: 800px;
+    margin: 0 0 40px 0;
+}
+
+.highlight-card {
+    display: inline-block;
+    background-color: var(--highlight-color);
+    color: #b35900;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 900;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(255, 153, 51, 0.2);
+    position: relative;
+    top: -2px;
+}
+
+.hero-cta {
+    display: inline-block;
+    padding: 16px 35px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+}
+
+.hero-cta:hover {
+    background-color: #387bd8;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(74, 144, 226, 0.45);
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 110px;
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* --- 4. About Section --- */
+.about-section {
+    text-align: center;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 4px solid #ffffff;
+}
+
+.about-section h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--dark-text);
+}
+
+.about-content p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--light-text);
+    margin-bottom: 40px;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-link a {
+    color: var(--dark-text);
+    font-size: 1.8rem;
+    transition: color 0.2s;
+}
+
+.social-link a:hover {
+    color: var(--primary-color);
+}
+
+/* --- 5. Skills Grid Section (Now inside the combined #resume section) --- */
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skill-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s;
+    border: 1px solid #e0e0e0;
+}
+
+.skill-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.logo-placeholder {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.skill-name {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 500;
+    color: #333;
+}
+
+
+/* * ----------------------------------------------------------------------
+* ADDITIONS FOR CONSOLIDATED #resume SECTION (Skills, Experience, Education)
+* ----------------------------------------------------------------------
+*/
+
+/* General styling for the sub-sections within the main #resume container */
+.skills-sub-section,
+.experience-sub-section,
+.education-sub-section {
+    margin-top: 50px;
+    padding-top: 20px;
+}
+
+/* Sub-headings for the internal sections (Skills, Work Experience, Education) */
+#resume h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: var(--dark-text);
+    border-bottom: 2px solid var(--line-color);
+    padding-bottom: 10px;
+    text-align: left;
+    /* Ensure alignment matches the main section header */
+}
+
+/* Remove margin for the first sub-section to start clean after the main header */
+.skills-sub-section {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+
+/* --- 6. Timeline Sections (Experience/Education) --- */
+/* This style block now applies to the timeline structures inside #resume */
+.timeline-section {
+    /* No solid background color so dots show through */
+    padding-top: var(--spacing-unit);
+    padding-bottom: var(--spacing-unit);
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-section .section-header {
+    margin-bottom: var(--spacing-unit);
+    border-bottom: none;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: var(--card-offset);
+    margin-bottom: 60px;
+}
+
+/* Vertical Minimalist Line */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background-color: var(--line-color-dark);
+    z-index: 1;
+}
+
+/* HASHTAG ACCENT - Uses the body background color for a clean cutout effect */
+.timeline-item::after {
+    content: '#';
+    position: absolute;
+    top: 0px;
+    left: -1px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    /* MODIFICATION: Crucial to keep base-background here for the cutout effect */
+    background-color: var(--base-background);
+    padding: 0 4px;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+/* CONTENT CARD */
+.timeline-content-card {
+    background-color: var(--background-color);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    /* Default width for timeline card */
+}
+
+/* Arrow/Connector Element */
+.timeline-content-card::before {
+    content: '';
+    position: absolute;
+    left: -18px;
+    top: 15px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 18px solid var(--background-color);
+    z-index: 4;
+}
+
+.timeline-item:hover .timeline-content-card {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.item-header h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.item-header p {
+    font-size: 1.1rem;
+    color: var(--dark-text);
+    margin: 0;
+    font-weight: 500;
+}
+
+.item-details strong {
+    color: var(--medium-text);
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.item-details p {
+    font-size: 1rem;
+    color: var(--medium-text);
+    margin-top: 0;
+    font-weight: 400;
+}
+
+
+/* --- 7. Projects Section --- */
+.projects-section {
+    padding-bottom: var(--spacing-unit);
+}
+
+.projects-section .section-header {
+    text-align: left;
+}
+
+.projects-section .section-header p {
+    font-size: 1rem;
+    color: var(--light-text);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    min-height: 350px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Dark Overlay */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: background-color 0.3s;
+    z-index: 1;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card:hover::before {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* Content Styling */
+.project-content {
+    padding: 25px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #dddddd;
+}
+
+.project-content .tags span {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.project-content .link-text {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
+}
+
+.project-card:hover .link-text {
+    background-color: #f0f0f0;
+}
+
+/* Individual image background assignments */
+#project-1 {
+    background-image: url('https://picsum.photos/seed/system/1200/600');
+}
+
+#project-2 {
+    background-image: url('https://picsum.photos/seed/checkout/1200/600');
+}
+
+#project-3 {
+    background-image: url('https://picsum.photos/seed/ai-dash/1200/600');
+}
+
+#project-4 {
+    background-image: url('https://picsum.photos/seed/mobile-app/1200/600');
+}
+
+
+/* --- 8. Contact Section --- */
+.contact-section {
+    padding-bottom: var(--spacing-unit);
+}
+
+.contact-section .section-header {
+    border-bottom: none;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: stretch;
+}
+
+/* Left Column: Call to Action (Centered) */
+.cta-column {
+    padding-right: 20px;
+    border-right: 2px solid var(--line-color);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cta-column h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.cta-column p {
+    font-size: 1.1rem;
+    color: var(--medium-text);
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* Right Column: Contact Links */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    text-decoration: none;
+    color: var(--dark-text);
+    border-bottom: 1px solid var(--line-color);
+    transition: color 0.3s;
+}
+
+.contact-card:first-child {
+    border-top: 1px solid var(--line-color);
+}
+
+.contact-card:hover {
+    color: var(--primary-color);
+}
+
+.contact-card i {
+    font-size: 1.4rem;
+    color: var(--medium-text);
+    min-width: 30px;
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+
+.contact-card:hover i {
+    color: var(--primary-color);
+}
+
+.contact-info .contact-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+    color: var(--dark-text);
+}
+
+.contact-info .contact-label {
+    font-size: 0.9rem;
+    color: var(--medium-text);
+    margin: 0;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.contact-card:hover .contact-label {
+    color: var(--primary-color);
+}
+
+/* --- 10. Footer Section --- */
+.site-footer {
+    padding: 30px 20px;
+    background-color: #ffffff;
+    /* White background to stand out from the body's pattern */
+    text-align: center;
+    border-top: 1px solid var(--line-color);
+    color: var(--medium-text);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 50px;
+    /* Space above the footer */
+}
+
+.site-footer p {
+    margin: 5px 0;
+}
+
+.site-footer .design-credit {
+    font-size: 0.8rem;
+    color: var(--light-text);
+}
+
+
+/* ----------------------------------------------------------------------
+* --- 9. Global Media Queries (Responsiveness) ---
+* ----------------------------------------------------------------------
+*/
+
+@media (max-width: 950px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* ---------------- Tablet/Small Desktop ---------------- */
+
+    /* Universal Padding Reduction */
+    .contact-section,
+    .about-section,
+    .skills-section,
+    .projects-section,
+    .timeline-section {
+        padding: 60px 20px;
+    }
+
+    /* Navigation Bar - Setup for Hamburger */
+    .minimal-nav {
+        /* Revert to desktop positioning, hiding the toggle */
+        top: 60px;
+        transform: translateX(-50%);
+        padding: 8px;
+        max-width: none;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-list {
+        display: flex;
+    }
+
+    html {
+        scroll-padding-top: 70px;
+    }
+
+    /* About Section */
+    .about-content p {
+        font-size: 1.1rem;
+    }
+
+    /* Skills Grid */
+    .skill-box {
+        width: 120px;
+        height: 120px;
+    }
+
+    .logo-placeholder {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    /* Resume Sub-Headers */
+    #resume h3 {
+        font-size: 1.5rem;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    /* Timeline */
+    .timeline-item {
+        padding-left: 40px;
+    }
+
+    .timeline-content-card::before {
+        left: -16px;
+        border-right: 16px solid var(--background-color);
+    }
+
+    /* Contact Section */
+    .contact-layout {
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+    }
+
+    .cta-column {
+        border-right: none;
+        border-bottom: 2px solid var(--line-color);
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        padding-right: 0;
+        justify-content: flex-start;
+        display: block;
+    }
+
+}
+
+@media (max-width: 650px) {
+    /* ---------------- Large Mobile/Portrait Tablet ---------------- */
+
+    .project-grid {
+        /* Stack projects vertically */
+        grid-template-columns: 1fr;
+    }
+
+    /* FIX: Reduce timeline card width to prevent overflow on portrait tablets */
+    .timeline-content-card {
+        width: calc(100% - 20px);
+        /* Reduce max width slightly */
+    }
+}
+
+@media (max-width: 480px) {
+    /* ---------------- Small Mobile/Phone Screens ---------------- */
+
+    /* Universal Spacing & Typography */
+    .resume-section {
+        padding: 40px 15px;
+    }
+
+    .hero {
+        padding: 100px 15px 40px;
+        min-height: 80vh;
+    }
+
+    .scroll-hint {
+        /* Anchor it correctly relative to the bottom of the hero section */
+        position: absolute;
+        bottom: 40px;
+        /* Adjust this value to move it up/down from the bottom edge of the screen */
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    /* --- SKILLS GRID FIX (2 per row) --- */
+    .skills-grid {
+        /* This ensures the items wrap appropriately */
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .skill-box {
+        /* Set the width to be slightly less than 50% to account for gap */
+        width: calc(50% - 10px);
+        height: 100px;
+        padding: 5px;
+        /* Ensure padding/border are included in the width calculation */
+        box-sizing: border-box;
+    }
+
+
+    /* --- NAVIGATION: CONVERT TO HAMBURGER --- */
+    .minimal-nav {
+        /* Fixed position, top right corner */
+        top: 10px;
+        right: 10px;
+        left: auto;
+        transform: none;
+        padding: 5px;
+        border-radius: 10px;
+        /* Use square corners for a more standard mobile menu container */
+        background-color: var(--primary-color);
+        /* Highlight the container */
+        height: 40px;
+        width: 40px;
+        overflow: visible;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-toggle {
+        display: block;
+        /* Show hamburger button */
+    }
+
+    .nav-toggle-icon {
+        background: #ffffff;
+        /* White icon bars */
+    }
+
+    .nav-toggle-icon::before,
+    .nav-toggle-icon::after {
+        background: #ffffff;
+    }
+
+    .nav-list {
+        /* Hide the list by default, waiting for JS to toggle the 'open' state */
+        display: none;
+        position: absolute;
+        top: 55px;
+        /* Position below the hamburger icon */
+        right: 0;
+        flex-direction: column;
+        background-color: #ffffff;
+        border: 1px solid var(--line-color);
+        border-radius: 8px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        min-width: 200px;
+        padding: 10px 0;
+    }
+
+    .nav-link {
+        /* Adjust pill links to fill the full menu width */
+        padding: 10px 20px;
+        color: var(--dark-text);
+        border-radius: 0;
+        /* Remove rounded pill shape in menu */
+    }
+
+    .nav-link:hover:not(.active) {
+        background-color: #f7f9fd;
+        transform: none;
+    }
+
+    .nav-link.active {
+        background-color: #e6f1ff;
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    html {
+        scroll-padding-top: 50px;
+    }
+
+    /* --- TIMELINE: ADDRESS OVERFLOW --- */
+    .timeline-item {
+        margin-bottom: 40px;
+        padding-left: 30px;
+    }
+
+    .timeline-content-card {
+        /* CRUCIAL FIX: Ensure card doesn't exceed 100% of the available space */
+        width: 100%;
+        box-sizing: border-box;
+        /* Include padding and border in the element's total width and height */
+        padding: 15px;
+    }
+
+    .timeline-item::after {
+        left: 0px;
+        transform: translateX(-50%);
+    }
+
+    .timeline-content-card::before {
+        left: -14px;
+        border-right: 14px solid var(--background-color);
+    }
+
+    .item-header h4 {
+        font-size: 1.3rem;
+    }
+
+    .item-header p {
+        font-size: 1rem;
+    }
+
+    /* Project Cards */
+    .project-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .project-content p {
+        font-size: 0.85rem;
+    }
+
+    /* Contact Adjustments */
+    .cta-column h3 {
+        font-size: 1.5rem;
+    }
+
+    .cta-column p {
+        font-size: 1rem;
+    }
+
+    .contact-info .contact-value {
+        font-size: 1rem;
+    }
+
+    .contact-info .contact-label {
+        font-size: 0.8rem;
+    }
+
+    /* Footer */
+    .site-footer {
+        padding: 20px 15px;
+    }
+}

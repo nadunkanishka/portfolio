@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadun Kanishka - UX Engineer</title>
+
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="minimal-nav" id="main-nav">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="nav-toggle">
+            <span class="nav-toggle-icon"></span>
+        </button>
+
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li> 
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+            <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
+            <li class="nav-item"><a href="#contact-section" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="hero">
+        <div class="role-badge">UX Engineer & Digital Product Creator</div>
+
+        <h1 class="hero-title">
+            I design and build <br>
+            <span class="highlight-card">exceptional</span> digital <span class="highlight-card">experiences</span>.
+        </h1>
+        <p class="hero-subtitle">
+            Specializing in accessible, <span class="highlight-card">high-performance</span> web applications and design
+            systems that scale. Based in [COLOMBO].
+        </p>
+        <a href="#projects" class="hero-cta">Explore My Portfolio</a>
+
+        <div class="scroll-hint">Scroll down</div>
+    </header>
+
+    <section id="about" class="resume-section about-section">
+
+        <img src="https://picsum.photos/seed/person/360/360" alt="Profile Picture of [Your Name]" class="profile-pic">
+
+        <h2>Hello, I'm [Nadun Kanishka]</h2>
+        <div class="about-content">
+            <p>
+                I am a UX Engineer specializing in crafting accessible, high-performance web applications and scalable
+                design systems. My focus lies in bridging the gap between design vision and technical execution,
+                ensuring every pixel is purposeful and every interaction is seamless.
+            </p>
+            <p>
+                With over five years of experience in product development, I thrive on solving complex problems with
+                elegant, code-driven solutions. Let's build something exceptional together.
+            </p>
+        </div>
+
+        <ul class="social-links">
+            <li class="social-link"><a href="[Your LinkedIn URL]" target="_blank" aria-label="LinkedIn Profile"><i
+                        class="fab fa-linkedin"></i></a></li>
+            <li class="social-link"><a href="[Your GitHub URL]" target="_blank" aria-label="GitHub Profile"><i
+                        class="fab fa-github"></i></a></li>
+            <li class="social-link"><a href="[Your Twitter/X URL]" target="_blank" aria-label="X/Twitter Profile"><i
+                        class="fab fa-square-x-twitter"></i></a></li>
+            <li class="social-link"><a href="mailto:[Your Email Address]" aria-label="Email Me"><i
+                        class="fas fa-envelope"></i></a></li>
+        </ul>
+    </section>
+
+    <section id="projects" class="resume-section projects-section">
+        <div class="section-header">
+            <h2>Recent Work & Projects</h2>
+            <p>A curated selection of solutions focusing on minimalist design and robust performance.</p>
+        </div>
+
+        <div class="project-grid">
+
+            <a href="#" class="project-card" id="project-1">
+                <div class="project-content">
+                    <div>
+                        <h3>Design System Hub</h3>
+                        <p>Building a robust, scalable design system from the ground up to unify 10+ consumer
+                            applications across desktop and mobile platforms.</p>
+                    </div>
+                    <div>
+                        <div class="tags">
+                            <span>React</span>
+                            <span>Tokens</span>
+                            <span>Figma</span>
+                        </div>
+                        <span class="link-text">View Case Study &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card" id="project-2">
+                <div class="project-content">
+                    <div>
+                        <h3>E-commerce Checkout Flow</h3>
+                        <p>Complete redesign and A/B testing of a legacy checkout funnel, resulting in a 20% conversion
+                            rate increase in less than three months.</p>
+                    </div>
+                    <div>
+                        <div class="tags">
+                            <span>UX Audit</span>
+                            <span>Next.js</span>
+                            <span>Performance</span>
+                        </div>
+                        <span class="link-text">See Live Demo &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card" id="project-3">
+                <div class="project-content">
+                    <div>
+                        <h3>AI Dashboard Prototype</h3>
+                        <p>Conceptualizing and prototyping a complex, data-heavy analytics dashboard for real-time
+                            machine learning visualization and monitoring.</p>
+                    </div>
+                    <div>
+                        <div class="tags">
+                            <span>Sass</span>
+                            <span>D3.js</span>
+                            <span>Prototyping</span>
+                        </div>
+                        <span class="link-text">Explore Prototype &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card" id="project-4">
+                <div class="project-content">
+                    <div>
+                        <h3>Mobile App Redesign</h3>
+                        <p>Overhauled the native iOS application interface, focusing on gesture controls and improved
+                            accessibility scores (WCAG 2.1 AA).</p>
+                    </div>
+                    <div>
+                        <div class="tags">
+                            <span>SwiftUI</span>
+                            <span>A11y</span>
+                            <span>Testing</span>
+                        </div>
+                        <span class="link-text">Read Report &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="resume" class="resume-section timeline-section">
+
+        <div class="section-header">
+            <h2>Resume</h2>
+            <p>A detailed look at my technical expertise, professional history, and formal education.</p>
+        </div>
+
+        <div class="skills-sub-section">
+            <h3>Core Skills & Technologies</h3>
+            <div class="skills-grid">
+
+                <div class="skill-box">
+                    <div class="logo-placeholder react">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <p class="skill-name">React.js</p>
+                </div>
+
+                <div class="skill-box">
+                    <div class="logo-placeholder javascript">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <p class="skill-name">JavaScript</p>
+                </div>
+
+                <div class="skill-box">
+                    <div class="logo-placeholder flutter">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <p class="skill-name">Flutter</p>
+                </div>
+
+                <div class="skill-box">
+                    <div class="logo-placeholder python">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <p class="skill-name">Python</p>
+                </div>
+
+                <div class="skill-box">
+                    <div class="logo-placeholder firebase">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <p class="skill-name">Firebase</p>
+                </div>
+
+                <div class="skill-box">
+                    <div class="logo-placeholder supabase">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <p class="skill-name">Supabase</p>
+                </div>
+
+                <div class="skill-box">
+                    <div class="logo-placeholder tailwind">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <p class="skill-name">Tailwind CSS</p>
+                </div>
+
+                <div class="skill-box">
+                    <div class="logo-placeholder shadcn">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <p class="skill-name">shadcn/ui</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="experience-sub-section">
+            <h3>Work Experience</h3>
+            <div class="timeline-container">
+
+                <div class="timeline-item">
+                    <div class="timeline-content-card">
+                        <div class="item-header">
+                            <h4>Lead UX Engineer</h4>
+                            <p>TechCorp Solutions, New York</p>
+                        </div>
+                        <div class="item-details">
+                            <strong>Jan 2022 – Present</strong>
+                            <p>Spearheaded the development of a company-wide design system, increasing front-end
+                                efficiency
+                                by 35%. Mentored junior developers and enforced WCAG 2.1 AA accessibility standards
+                                across
+                                all major applications.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content-card">
+                        <div class="item-header">
+                            <h4>Front-End Developer</h4>
+                            <p>Creative Digital Agency, London</p>
+                        </div>
+                        <div class="item-details">
+                            <strong>Jun 2018 – Dec 2021</strong>
+                            <p>Developed and launched over 20 responsive marketing websites using React and Next.js.
+                                Optimized page load times by 40% through aggressive code splitting and image compression
+                                techniques.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content-card">
+                        <div class="item-header">
+                            <h4>Jr. Web Developer</h4>
+                            <p>Startup Hub, San Francisco</p>
+                        </div>
+                        <div class="item-details">
+                            <strong>Jul 2017 – May 2018</strong>
+                            <p>Built initial prototypes and MVP for two successful SaaS products, focusing on clean
+                                architecture and test-driven development (TDD).</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="education-sub-section">
+            <h3>Education & Certifications</h3>
+            <div class="timeline-container">
+
+                <div class="timeline-item">
+                    <div class="timeline-content-card">
+                        <div class="item-header">
+                            <h4>Master of Science in Computer Science</h4>
+                            <p>Massachusetts Institute of Technology (MIT)</p>
+                        </div>
+                        <div class="item-details">
+                            <strong>2015 – 2017</strong>
+                            <p>Specialization in Human-Computer Interaction (HCI) and Advanced Algorithms. Thesis
+                                focused on
+                                predictive UI design models.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content-card">
+                        <div class="item-header">
+                            <h4>B.A. in Digital Media</h4>
+                            <p>University of California, Berkeley</p>
+                        </div>
+                        <div class="item-details">
+                            <strong>2011 – 2015</strong>
+                            <p>Graduated Summa Cum Laude. Coursework included graphic design principles, media theory,
+                                and
+                                advanced JavaScript programming.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content-card">
+                        <div class="item-header">
+                            <h4>Certified Professional in Accessibility (CPACC)</h4>
+                            <p>IAAP (International Association of Accessibility Professionals)</p>
+                        </div>
+                        <div class="item-details">
+                            <strong>Certified: 2023</strong>
+                            <p>Demonstrated comprehensive knowledge of accessibility standards, guidelines, and best
+                                practices.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-section" class="resume-section contact-section">
+
+        <div class="section-header">
+            <h2>Contact Me</h2>
+        </div>
+
+        <div class="contact-layout">
+
+            <div class="cta-column">
+                <h3>Ready to collaborate?</h3>
+                <p>
+                    I'm currently available for freelance projects, full-time roles, or just a quick chat about design
+                    and technology. Feel free to reach out directly via email or connect with me on social platforms
+                    below.
+                </p>
+            </div>
+
+            <div class="contact-list">
+
+                <a href="mailto:hello@example.com" class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-info">
+                        <span class="contact-value">hello@example.com</span>
+                        <p class="contact-label">Direct Email</p>
+                    </div>
+                </a>
+
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <div class="contact-info">
+                        <span class="contact-value">LinkedIn Profile</span>
+                        <p class="contact-label">Professional Network</p>
+                    </div>
+                </a>
+
+                <a href="https://behance.net/yourprofile" target="_blank" class="contact-card">
+                    <i class="fab fa-behance"></i>
+                    <div class="contact-info">
+                        <span class="contact-value">Behance Portfolio</span>
+                        <p class="contact-label">Design Case Studies</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/yourusername" target="_blank" class="contact-card">
+                    <i class="fab fa-github"></i>
+                    <div class="contact-info">
+                        <span class="contact-value">GitHub</span>
+                        <p class="contact-label">Code and Repositories</p>
+                    </div>
+                </a>
+
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-info">
+                        <span class="contact-value">London, UK</span>
+                        <p class="contact-label">Available for Remote Work</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Nadun Kanishka. All Rights Reserved.</p>
+        <p class="design-credit">Designed and Built by Nadun Kanishka.</p>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.resume-section, .hero');
+
+            // --- MOBILE NAV TOGGLE LOGIC ---
+            const navToggle = document.getElementById('nav-toggle');
+            const mainNav = document.getElementById('main-nav');
+            
+            if (navToggle && mainNav) {
+                navToggle.addEventListener('click', () => {
+                    const isExpanded = mainNav.classList.toggle('open');
+                    navToggle.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+            
+            // Close menu when a link is clicked (for mobile UX)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav && mainNav.classList.contains('open')) {
+                        mainNav.classList.remove('open');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // --- SCROLLSPY LOGIC ---
+            const observerOptions = {
+                root: null, 
+                rootMargin: '-150px 0px -20% 0px',
+                threshold: 0.05
+            };
+
+            const removeActiveClasses = () => {
+                navLinks.forEach(link => link.classList.remove('active'));
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const targetId = entry.target.id;
+                    const correspondingLink = document.querySelector(`.nav-link[href="#${targetId}"]`);
+
+                    if (entry.isIntersecting) {
+                        removeActiveClasses();
+                        if (correspondingLink) {
+                            correspondingLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Handle Click Events (Keeps smooth scroll)
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    observer.disconnect();
+
+                    removeActiveClasses();
+                    this.classList.add('active');
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+
+                    setTimeout(() => {
+                        sections.forEach(section => observer.observe(section));
+                    }, 800);
+                });
+            });
+
+            // Initial check: Ensure the correct starting state
+            const initialActiveSection = document.getElementById('hero');
+            if (initialActiveSection) {
+                const initialLink = document.querySelector(`.nav-link[href="#hero"]`);
+                if (initialLink) {
+                    initialLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
